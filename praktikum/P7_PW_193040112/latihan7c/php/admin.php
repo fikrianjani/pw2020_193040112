@@ -32,8 +32,8 @@ if(isset($_GET['cari'])) {
 		<a href="tambah.php"><button>Tambah Data</button></a>
 	</div><br>
 	<form action="" method="get">
-		<input type="text" name="keyword" autofocus>
-		<button type="submit" name="cari">Cari!</button>
+		<input type="text" name="keyword" autofocus class="keyword">
+		<button type="submit" name="cari" class="tombol-cari">Cari!</button>
 	</form>
 	<table class="tabel" border="1" cellpadding="13" cellspacing="0">
 		<tr>
@@ -74,6 +74,5 @@ if(isset($_GET['cari'])) {
 	<div class="logout">
 		<button><a href="logout.php">Logout</a></button>
 	</div>
-
 </body>
 </html>

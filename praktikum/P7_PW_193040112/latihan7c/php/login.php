@@ -36,18 +36,18 @@ if(isset($_POST['submit'])){
 			$_SESSION['username'] = $_POST['username'];
 			$_SESSION['hash'] = hash('sha256', $row['id'], false);
 
-			if(isset($_POST['remember'])) {
+			if(isset($_GET['remember'])) {
 				setcookie('username', $row['username'], time() + 60 * 60 * 24);
 				$hash = hash('sha256', $row['id']);
 				setcookie('hash', $hash, time() + 60 *60 *24);
 			}
-		}
 		if (hash('sha256', $row['id']) == $_SESSION['hash']) {
 			header("Location: admin.php");
 			die;
 		}
 		header("Location: ../index.php");
 		die;
+		}
 	}
 	$error = true;
 }
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
 			</tr>
 		</table>
 		<div class="remember">
-			<input type="checkbox" name="remember">
+			<input type="checkbox" name="remember" id="remember">
 			<label for="remember">Ingat Saya</label>
 		</div>
 		<button type="submit" name="submit">Login</button>
